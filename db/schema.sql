@@ -1,25 +1,25 @@
-CREATE DATABASE myWorkers.db;
+CREATE DATABASE myWorkers_db;
 
-DROP DATABASE IF EXISTS myWorkers.db;
+DROP DATABASE IF EXISTS myWorkers_db;
 
-CREATE DATABASE myWorkers.db;
+CREATE DATABASE myWorkers_db;
 
-USE myWorkers.db;
+USE myWorkers_db;
 
 SELECT DATABASE();
 
 CREATE TABLE
     departments(
-        id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        id INTEGER NOT NULL AUTO_INCREMENT,
         name VARCHAR(30) NULL,
         PRIMARY KEY (id)
     );
 
 CREATE TABLE
-    role(
-        id NOT NULL AUTO_INCREMENT,
+    roles (
+        id INTEGER NOT NULL AUTO_INCREMENT,
         title VARCHAR(30) NULL,
-        salary DECIMAL NULL,
+        salary DECIMAL(10.3) NULL,
         department_id INT NULL,
         PRIMARY KEY(id)
     );
@@ -29,7 +29,7 @@ CREATE TABLE
         id INT NOT NULL AUTO_INCREMENT,
         first_name VARCHAR(30) NULL,
         last_name VARCHAR(30) NULL,
-        role_id INT NULL,
+        roles_id INT NULL,
         manager_id INT NULL,
         PRIMARY KEY(id)
     );
