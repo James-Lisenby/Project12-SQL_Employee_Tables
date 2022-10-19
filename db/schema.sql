@@ -6,8 +6,6 @@ CREATE DATABASE myWorkers_db;
 
 USE myWorkers_db;
 
-SELECT DATABASE();
-
 CREATE TABLE
     departments(
         id INTEGER NOT NULL AUTO_INCREMENT,
@@ -16,7 +14,7 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    roles (
+    role (
         id INTEGER NOT NULL AUTO_INCREMENT,
         title VARCHAR(30) NULL,
         salary DECIMAL(10.3) NULL,
@@ -29,7 +27,7 @@ CREATE TABLE
         id INT NOT NULL AUTO_INCREMENT,
         first_name VARCHAR(30) NULL,
         last_name VARCHAR(30) NULL,
-        roles_id INT NULL,
+        role_id INT NULL,
         manager_id INT NULL,
         PRIMARY KEY(id)
     );

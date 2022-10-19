@@ -1,6 +1,7 @@
 let mysql = require('mysql2');
 let inquirer = require('inquirer');
 let cTable = require('console.table');
+// Requires the installed NPM packages
 
 let connection = mysql.createConnection({
     host: 'localhost',
@@ -9,11 +10,13 @@ let connection = mysql.createConnection({
     password: 'Beavertrapper69.',
     database: 'myWorkers_db'
 });
+// Connects to local host
 
 connection.connect((err) =>{
     if (err) throw err;
     
     runSearch();
+    // Function to start the command line app.
 });
 
 function runSearch() {
@@ -31,6 +34,7 @@ function runSearch() {
             "Update Roles"
         ]
     })
+    // Begins function based on selected choice.
 
     .then(function(answer) {
         console.log(answer);
@@ -61,3 +65,25 @@ function runSearch() {
 
     })
 }
+
+function viewAll(){
+    connection.query(
+        "SELECT employee.id, employee.first_name, employee.last_name, employee.role_id, employee.manager_id, role.title, role.salary, role.id, department.id FROM employee LEFT JOIN role ON employee.role_id = role.id LEFT JOIN department ON role.department_id = department.id", function(err, result, fields) {
+            if (err) throw err;
+            console.table(result);
+            runSearch();
+        }
+    );
+};
+
+function viewDepartments();
+
+function viewRoles();
+
+function addEmployee();
+
+function addDepartment();
+
+function addRoles();
+
+function updateRoles();
