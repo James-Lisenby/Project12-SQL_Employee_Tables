@@ -76,14 +76,29 @@ function viewAll(){
     );
 };
 
-function viewDepartments();
+function viewDepartments(){
+        connection.query("SELECT * FROM department", function(err, result, fields) {
+            if (err) throw err;
+            console.table(result);
+            runSearch();
+          }
+        ); };
 
-function viewRoles();
+        function viewRoles() {
+            connection.query(
+            "SELECT role.id, role.title, role.salary, role.department_id, department.id, department.name FROM role LEFT JOIN department on role.department_id = department.id",
+            function(err, result, fields) {
+               if (err) throw err;
+               console.table(result);
+               // re-prompt the user for another selection
+               runSearch();
+             }
+            ); };
 
-function addEmployee();
+// function addEmployee();
 
-function addDepartment();
+// function addDepartment();
 
-function addRoles();
+// function addRoles();
 
-function updateRoles();
+// function updateRoles();

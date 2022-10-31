@@ -7,7 +7,7 @@ CREATE DATABASE myWorkers_db;
 USE myWorkers_db;
 
 CREATE TABLE
-    departments(
+    department(
         id INTEGER NOT NULL AUTO_INCREMENT,
         name VARCHAR(30) NULL,
         PRIMARY KEY (id)
